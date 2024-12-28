@@ -89,6 +89,22 @@ export default function Page() {
               alt="Artwork"
               className="[grid-area:stack] object-cover w-full aspect-[4/3]"
               height={600}
+              src="/enchanted_falls.jpg"
+              width={800}
+            />
+            <div className="flex-1 [grid-area:stack] bg-black/10 group-hover:opacity-10 transition-opacity text-white p-4 lg:p-6 justify-end flex flex-col gap-2">
+              <h3 className="font-semibold tracking-tight">Enchanted Falls</h3>
+            </div>
+          </div>
+
+          <div className="relative group grid [grid-template-areas:stack] overflow-hidden rounded-lg">
+            <Link className="absolute inset-0 z-10" href="#">
+              <span className="sr-only">View</span>
+            </Link>
+            <Image
+              alt="Artwork"
+              className="[grid-area:stack] object-cover w-full aspect-[4/3]"
+              height={600}
               src="/gasworks.jpeg"
               width={800}
             />
@@ -96,6 +112,7 @@ export default function Page() {
               <h3 className="font-semibold tracking-tight">Gasworks Park</h3>
             </div>
           </div>
+
           <div className="relative group grid [grid-template-areas:stack] overflow-hidden rounded-lg">
             <Link className="absolute inset-0 z-10" href="#">
               <span className="sr-only">View</span>
