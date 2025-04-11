@@ -13,7 +13,7 @@ export default function AboutPage() {
             <div className="space-y-4">
               <h1 className={typography.h1}>About Me</h1>
               <p className={typography.bodyLarge}>
-                Welcome to my artistic journey. I'm Ritul Jain, a passionate artist based in Seattle, Washington.
+                Welcome to my artistic journey. I&apos;m Ritul Jain, a passionate artist based in Seattle, Washington.
               </p>
               <p className={typography.body}>
                 My work is inspired by the natural beauty of the Pacific Northwest, urban landscapes, and the interplay of light and shadow in everyday scenes. I primarily work with oils and acrylics, exploring different techniques to capture the essence of my subjects.
@@ -22,7 +22,7 @@ export default function AboutPage() {
                 Each piece is a reflection of my personal connection to the world around me, an attempt to convey the emotions and stories that landscapes and cityscapes hold. Through my art, I hope to invite viewers to see the world through a different lens and find beauty in the ordinary.
               </p>
               <p className={typography.body}>
-                When I'm not painting, I enjoy hiking in the mountains, photography, and exploring new artistic techniques. These experiences directly influence my work and help me grow as an artist.
+                When I&apos;m not painting, I enjoy hiking in the mountains, photography, and exploring new artistic techniques. These experiences directly influence my work and help me grow as an artist.
               </p>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <a
