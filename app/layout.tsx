@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { afacad } from "@/app/ui/fonts";
-import { cormorant_garamond } from "@/app/ui/fonts";
+import { afacad, cormorant_garamond } from './ui/fonts';
 import Header from './components/Header';
-
 import '@/app/ui/globals.css';
 
 export const viewport: Viewport = {
@@ -94,7 +92,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`${afacad.variable} ${cormorant_garamond.variable} antialiased`}>
+      <body className={`${afacad.className} ${cormorant_garamond.variable} antialiased`}>
         <Header />
         {children}
       </body>    
