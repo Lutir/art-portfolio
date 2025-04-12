@@ -60,7 +60,6 @@ export default function RootLayout({
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         <ThemeProvider>
           <Header />
-          <ThemeToggle />
           {children}
         </ThemeProvider>
       </body>
