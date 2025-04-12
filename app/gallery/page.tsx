@@ -7,10 +7,14 @@ import { motion } from 'framer-motion'
 import { Metadata } from 'next'
 import Masonry from 'react-masonry-css'
 import ThemeToggle from '../components/ThemeToggle';
+import { Filter } from 'lucide-react';
 
 import '@/app/globals.css';
 import ImageModal from '../components/ImageModal';
 import { typography } from '../ui/typography';
+
+type Category = 'landscape' | 'nature' | 'urban' | 'water';
+type Medium = 'Oil' | 'Acrylic' | '';
 
 // Artwork data with descriptions
 const artworks = [
@@ -20,9 +24,10 @@ const artworks = [
     alt: "Cafe terrace at Night",
     title: "Cafe Terrace at Night",
     description: "Inspired by Van Gogh's iconic painting, this piece captures the vibrant nightlife of a café terrace. The warm yellows and deep blues create a striking contrast, while the swirling patterns in the sky evoke a sense of movement and emotion. The composition draws the viewer into the scene, making them feel as if they're standing right there, experiencing the magical atmosphere of the evening.",
-    medium: "Oil on Canvas",
+    medium: "Oil" as Medium,
     year: "June, 2024",
-    orientation: "vertical"
+    orientation: "vertical",
+    categories: ['urban', 'nature'] as Category[]
   },
   {
     id: 2,
@@ -30,9 +35,10 @@ const artworks = [
     alt: "Reflections",
     title: "Reflections",
     description: "This contemplative piece explores the theme of reflection both literally and metaphorically. The raindrops on the window create a distorted view of the world outside, while the candle's flame casts dancing shadows. The interplay of light and water creates a dreamlike quality, inviting viewers to reflect on their own inner thoughts and emotions.",
-    medium: "Acrylic on Canvas",
+    medium: "Acrylic" as Medium,
     year: "September, 2022",
-    orientation: "vertical"
+    orientation: "vertical",
+    categories: ['urban', 'water'] as Category[]
   },
   {
     id: 3,
@@ -40,9 +46,10 @@ const artworks = [
     alt: "The Cat on the Window",
     title: "The Cat on the Window",
     description: "A serene moment captured in this intimate portrait of a cat watching the rain. The contrast between the warm interior and the cool, wet world outside creates a sense of comfort and security. The detailed rendering of the raindrops and the cat's fur texture showcases the artist's attention to detail and ability to convey mood through subtle elements.",
-    medium: "Oil on Canvas",
+    medium: "Oil" as Medium,
     year: "November, 2023",
-    orientation: "vertical"
+    orientation: "vertical",
+    categories: ['urban', 'water'] as Category[]
   },
   {
     id: 4,
@@ -50,9 +57,10 @@ const artworks = [
     alt: "Mount Rainier",
     title: "Mount Rainier",
     description: "This majestic landscape captures the awe-inspiring presence of Mount Rainier. The snow-capped peak rises dramatically against the sky, while the surrounding wilderness is rendered with rich detail. The painting conveys both the grandeur of nature and the peaceful solitude found in wild places, inviting viewers to contemplate their relationship with the natural world.",
-    medium: "Acrylic on Canvas",
+    medium: "Acrylic" as Medium,
     year: "December, 2022",
-    orientation: "vertical"
+    orientation: "vertical",
+    categories: ['landscape', 'nature'] as Category[]
   },
   {
     id: 5,
@@ -60,9 +68,10 @@ const artworks = [
     alt: "Whispers of the Valley",
     title: "Whispers of the Valley",
     description: "A serene valley landscape where mist dances between rolling hills. The soft morning light creates a dreamlike atmosphere, while subtle details in the foreground add depth and texture. This piece captures the quiet moments when nature speaks in whispers.",
-    medium: "Oil on Canvas",
+    medium: "Oil" as Medium,
     year: "January, 2025",
-    orientation: "horizontal"
+    orientation: "horizontal",
+    categories: ['landscape', 'nature'] as Category[]
   },
   {
     id: 6,
@@ -70,9 +79,10 @@ const artworks = [
     alt: "Chasing the Horizon",
     title: "Chasing the Horizon",
     description: "An expansive landscape that captures the endless pursuit of the horizon. The dramatic sky meets the earth in a symphony of colors, while the foreground elements create a sense of journey and discovery. This painting invites viewers to contemplate their own paths and aspirations.",
-    medium: "Acrylic on Canvas",
+    medium: "Acrylic" as Medium,
     year: "February, 2025",
-    orientation: "horizontal"
+    orientation: "horizontal",
+    categories: ['landscape', 'nature'] as Category[]
   },
   {
     id: 7,
@@ -80,9 +90,10 @@ const artworks = [
     alt: "California Dreaming",
     title: "California Dreaming",
     description: "A vibrant interpretation of California's iconic landscapes, where golden light meets coastal beauty. The painting balances the state's natural splendor with its urban energy, creating a dreamlike vision of the Golden State. Rich colors and dynamic composition evoke the spirit of California's diverse landscapes.",
-    medium: "Oil on Canvas",
+    medium: "Oil" as Medium,
     year: "March, 2025",
-    orientation: "horizontal"
+    orientation: "horizontal",
+    categories: ['landscape', 'nature', 'urban'] as Category[]
   },
   {
     id: 8,
@@ -90,9 +101,10 @@ const artworks = [
     alt: "Enchanted Falls",
     title: "Enchanted Falls",
     description: "A mystical waterfall scene that feels like stepping into a fantasy world. The cascading water creates a mesmerizing pattern, while the surrounding vegetation is rendered in rich, vibrant greens. The play of light through the water creates a magical atmosphere, suggesting a hidden realm where nature's beauty is amplified beyond the ordinary.",
-    medium: "Oil on Canvas",
+    medium: "Oil" as Medium,
     year: "April, 2024",
-    orientation: "horizontal"
+    orientation: "horizontal",
+    categories: ['landscape', 'nature', 'water'] as Category[]
   },
   {
     id: 9,
@@ -100,9 +112,10 @@ const artworks = [
     alt: "Gasworks Park",
     title: "Gasworks Park",
     description: "This urban landscape reimagines the industrial structures of Gasworks Park with a dreamlike quality. The contrast between the geometric shapes of the machinery and the organic forms of the park creates a fascinating tension. The painting captures the transformation of industrial space into a place of recreation and contemplation, highlighting the intersection of human history and natural beauty.",
-    medium: "Acrylic on Canvas",
+    medium: "Acrylic" as Medium,
     year: "May, 2023",
-    orientation: "horizontal"
+    orientation: "horizontal",
+    categories: ['urban', 'landscape'] as Category[]
   },
   {
     id: 10,
@@ -110,9 +123,10 @@ const artworks = [
     alt: "Somewhere in the Mountains",
     title: "Somewhere in the Mountains",
     description: "A contemplative mountain scene that captures the quiet majesty of alpine landscapes. The partial view of the mountain peak creates a sense of mystery and wonder, inviting viewers to imagine what lies beyond the frame. The subtle color palette and careful attention to light and shadow convey the changing moods of mountain weather and the timeless quality of these ancient formations.",
-    medium: "Oil on Canvas",
+    medium: "Oil" as Medium,
     year: "June, 2023",
-    orientation: "horizontal"
+    orientation: "horizontal",
+    categories: ['landscape', 'nature'] as Category[]
   },
   {
     id: 11,
@@ -120,9 +134,10 @@ const artworks = [
     alt: "Whispering Peaks",
     title: "Whispering Peaks",
     description: "This atmospheric landscape captures the ethereal quality of mountain peaks shrouded in mist. The soft, diffused light creates a dreamlike atmosphere, while the jagged peaks emerge dramatically from the clouds. The painting conveys both the physical grandeur of the mountains and the spiritual resonance they hold, suggesting the whispers of ancient stories carried on the mountain winds.",
-    medium: "Acrylic on Canvas",
+    medium: "Acrylic" as Medium,
     year: "July, 2022",
-    orientation: "horizontal"
+    orientation: "horizontal",
+    categories: ['landscape', 'nature'] as Category[]
   },
   {
     id: 12,
@@ -130,9 +145,10 @@ const artworks = [
     alt: "Sunset Paradise",
     title: "Sunset Paradise",
     description: "A vibrant sunset scene that captures the magical transition between day and night. The rich oranges, pinks, and purples of the sky create a dramatic backdrop, while the silhouetted landscape adds depth and contrast. The painting conveys the fleeting beauty of these moments and the sense of peace that comes with watching the day draw to a close.",
-    medium: "Oil on Canvas",
+    medium: "Oil" as Medium,
     year: "August, 2023",
-    orientation: "horizontal"
+    orientation: "horizontal",
+    categories: ['landscape', 'nature'] as Category[]
   },
 ];
 
@@ -145,25 +161,53 @@ function parseDate(dateStr: string): Date {
   return new Date(parseInt(year), monthIndex, 1);
 }
 
+const allCategories: Category[] = ['landscape', 'nature', 'urban', 'water'];
+const allMediums: Medium[] = ['Oil', 'Acrylic'];
+
 export default function Page() {
   const [selectedImage, setSelectedImage] = useState<typeof artworks[0] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setSortBy] = useState<SortOption>('newest');
-  const [sortedArtworks, setSortedArtworks] = useState(artworks);
+  const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
+  const [selectedMedium, setSelectedMedium] = useState<Medium>('');
+  const [selectedYear, setSelectedYear] = useState<string>('');
+  const [filteredArtworks, setFilteredArtworks] = useState(artworks);
 
-  // Sort artworks whenever sortBy changes
+  // Get unique years from artworks
+  const years = Array.from(new Set(artworks.map(art => art.year.split(', ')[1]))).sort().reverse();
+
+  // Filter and sort artworks
   useEffect(() => {
-    const sorted = [...artworks].sort((a, b) => {
+    let filtered = [...artworks];
+
+    // Apply category filter
+    if (selectedCategories.length > 0) {
+      filtered = filtered.filter(art => 
+        selectedCategories.some(cat => art.categories.includes(cat))
+      );
+    }
+
+    // Apply medium filter
+    if (selectedMedium) {
+      filtered = filtered.filter(art => art.medium === selectedMedium);
+    }
+
+    // Apply year filter
+    if (selectedYear) {
+      filtered = filtered.filter(art => art.year.includes(selectedYear));
+    }
+
+    // Apply sorting
+    filtered.sort((a, b) => {
       const dateA = parseDate(a.year);
       const dateB = parseDate(b.year);
-      if (sortBy === 'newest') {
-        return dateB.getTime() - dateA.getTime();
-      } else {
-        return dateA.getTime() - dateB.getTime();
-      }
+      return sortBy === 'newest' 
+        ? dateB.getTime() - dateA.getTime()
+        : dateA.getTime() - dateB.getTime();
     });
-    setSortedArtworks(sorted);
-  }, [sortBy]);
+
+    setFilteredArtworks(filtered);
+  }, [selectedCategories, selectedMedium, selectedYear, sortBy]);
 
   // Simulate loading state for images
   useEffect(() => {
@@ -176,17 +220,14 @@ export default function Page() {
 
   const openImageModal = (artwork: typeof artworks[0]) => {
     setSelectedImage(artwork);
-    // Add to browser history for better navigation
     window.history.pushState({ artworkId: artwork.id }, '', `#artwork-${artwork.id}`);
   };
 
   const closeImageModal = () => {
     setSelectedImage(null);
-    // Remove from browser history
     window.history.pushState(null, '', window.location.pathname);
   };
 
-  // Handle browser back button
   useEffect(() => {
     const handlePopState = () => {
       setSelectedImage(null);
@@ -203,6 +244,14 @@ export default function Page() {
     500: 1
   };
 
+  const toggleCategory = (category: Category) => {
+    setSelectedCategories(prev => 
+      prev.includes(category)
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
+    );
+  };
+
   return (
     <>
       <ThemeToggle />
@@ -214,23 +263,90 @@ export default function Page() {
               Explore a curated collection of stunning artworks that capture the essence of creativity. I&apos;ve used a mixture
               of Oils and Acrylic Paints
             </p>
-            <div className="flex justify-center mt-4">
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="px-4 py-2 rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400"
-              >
-                <option value="newest">Newest First</option>
-                <option value="oldest">Oldest First</option>
-              </select>
-            </div>
           </div>
+
+          {/* Filter UI */}
+          <div className="mb-8 space-y-4">
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              <div className="flex items-center gap-2">
+                <Filter className="h-5 w-5" />
+                <span className="font-medium">Filters:</span>
+              </div>
+              
+              {/* Category filters */}
+              <div className="flex flex-wrap justify-center gap-2">
+                {Array.from(allCategories).map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => toggleCategory(category)}
+                    className={`rounded-full px-3 py-1 text-sm transition-colors ${
+                      selectedCategories.includes(category)
+                        ? 'bg-indigo-600 text-white'
+                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+
+              {/* Medium filter */}
+              <select
+                value={selectedMedium}
+                onChange={(e) => setSelectedMedium(e.target.value as Medium)}
+                className="rounded-lg border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+              >
+                <option value="">All Mediums</option>
+                <option value="Oil">Oil</option>
+                <option value="Acrylic">Acrylic</option>
+              </select>
+
+              {/* Year filter */}
+              <select
+                value={selectedYear}
+                onChange={(e) => setSelectedYear(e.target.value)}
+                className="rounded-lg border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+              >
+                <option value="">All Years</option>
+                {years.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+
+              {/* Clear filters button */}
+              {(selectedCategories.length > 0 || selectedMedium || selectedYear) && (
+                <button
+                  onClick={() => {
+                    setSelectedCategories([]);
+                    setSelectedMedium('');
+                    setSelectedYear('');
+                  }}
+                  className="rounded-lg bg-slate-100 px-3 py-1 text-sm text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+                >
+                  Clear all
+                </button>
+              )}
+            </div>
+
+            {/* Active filters summary */}
+            {(selectedCategories.length > 0 || selectedMedium || selectedYear) && (
+              <div className="text-sm text-slate-600 dark:text-slate-400 text-center">
+                Showing: {filteredArtworks.length} artwork{filteredArtworks.length !== 1 ? 's' : ''} 
+                {selectedCategories.length > 0 && ` in ${selectedCategories.join(', ')}`}
+                {selectedMedium && ` using ${selectedMedium}`}
+                {selectedYear && ` from ${selectedYear}`}
+              </div>
+            )}
+          </div>
+
           <Masonry
             breakpointCols={breakpointColumns}
             className="flex -ml-4 w-auto"
             columnClassName="pl-4 bg-clip-padding"
           >
-            {sortedArtworks.map((artwork) => (
+            {filteredArtworks.map((artwork) => (
               <motion.div 
                 key={artwork.id}
                 className="relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 mb-4"
@@ -255,6 +371,16 @@ export default function Page() {
                     <div className="p-4 w-full">
                       <h3 className={`${typography.h4} text-white`}>{artwork.title}</h3>
                       <p className={`${typography.caption} text-white/80`}>{artwork.medium}, {artwork.year}</p>
+                      <div className="flex flex-wrap gap-1 mt-2">
+                        {artwork.categories.map(category => (
+                          <span
+                            key={category}
+                            className="text-xs px-2 py-1 rounded-full bg-white/20 text-white"
+                          >
+                            {category}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -268,10 +394,17 @@ export default function Page() {
               </motion.div>
             ))}
           </Masonry>
+
+          {filteredArtworks.length === 0 && (
+            <div className="text-center py-12">
+              <p className={`${typography.body} text-slate-600 dark:text-slate-400`}>
+                No artworks found matching your filters.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Image Modal */}
       {selectedImage && (
         <ImageModal
           isOpen={!!selectedImage}
@@ -315,5 +448,5 @@ export default function Page() {
         }}
       />
     </>
-  )
+  );
 }
