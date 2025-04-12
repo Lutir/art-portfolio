@@ -1,79 +1,44 @@
-import type { Metadata, Viewport } from "next";
-import { afacad, cormorant_garamond } from './ui/fonts';
-import Header from './components/Header';
-import '@/app/ui/globals.css';
+import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "./context/ThemeContext";
+import ThemeToggle from "./components/ThemeToggle";
+import Header from "./components/Header";
 
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
-  userScalable: true,
-  themeColor: '#000000',
-};
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-  title: "Ritul Jain Art Portfolio - Inspiring Acrylic Paintings of Nature",
-  description: "Explore the nature-inspired acrylic paintings of Ritul Jain, capturing the beauty of landscapes, mountains, and more. Discover art that evokes connection and inspiration.",
-  keywords: ['Acrylic Paintings', 'Nature Art', 'Landscape Paintings', 'Mountain Paintings', 'Ritul Jain', 'Art Portfolio', 'Inspiring Art', 'Oil Paintings', 'Contemporary Art', 'Fine Art'],
-  authors: [{ name: 'Ritul Jain' }],
-  creator: 'Ritul Jain',
-  publisher: 'Ritul Jain',
-  metadataBase: new URL('https://art.rituljain.com'),
-  alternates: {
-    canonical: '/'
-  },
+  title: "Ritul Jain Art Portfolio",
+  description: "Explore the artwork of Ritul Jain, featuring landscapes, nature scenes, and more.",
+  keywords: ["art", "portfolio", "painting", "landscape", "nature", "artist", "Ritul Jain"],
+  authors: [{ name: "Ritul Jain" }],
+  creator: "Ritul Jain",
   openGraph: {
-    title: 'Ritul Jain Art Portfolio - Inspiring Acrylic Paintings of Nature and Landscapes',
-    description: 'Discover the captivating acrylic paintings of Ritul Jain, featuring landscapes and natural beauty. Visit the gallery to see more.',
-    url: 'https://art.rituljain.com',
-    siteName: 'Ritul Jain Art Portfolio',
-    type: 'website',
+    type: "website",
+    locale: "en_US",
+    url: "https://art.rituljain.com",
+    title: "Ritul Jain Art Portfolio",
+    description: "Explore the artwork of Ritul Jain, featuring landscapes, nature scenes, and more.",
+    siteName: "Ritul Jain Art Portfolio",
     images: [
       {
-        url: '/og-image.jpg',
+        url: "https://art.rituljain.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: 'Ritul Jain Art Portfolio',
-      }
+        alt: "Ritul Jain Art Portfolio",
+      },
     ],
-    locale: 'en_US',
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Ritul Jain Art Portfolio',
-    description: 'Discover the captivating acrylic paintings of Ritul Jain, featuring landscapes and natural beauty.',
-    images: ['/twitter-image.jpg'],
-    creator: '@rituljain',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      'max-video-preview': 3,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+    card: "summary_large_image",
+    title: "Ritul Jain Art Portfolio",
+    description: "Explore the artwork of Ritul Jain, featuring landscapes, nature scenes, and more.",
+    images: ["https://art.rituljain.com/og-image.jpg"],
+    creator: "@rituljain",
   },
   verification: {
-    google: 'f-N2DDVSssIWsJBvihqvgOtaBOSDsmCa1ZQq7jR4zXs',
-  },
-  category: 'Art',
-  classification: 'Art Portfolio',
-  referrer: 'origin-when-cross-origin',
-  colorScheme: 'light dark',
-  manifest: '/manifest.json',
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
-    ],
-    apple: [
-      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    google: "google-site-verification-code",
   },
 };
 
@@ -85,17 +50,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#000000" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#ffffff" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`${afacad.className} ${cormorant_garamond.variable} antialiased`}>
-        <Header />
-        {children}
-      </body>    
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+        <ThemeProvider>
+          <Header />
+          <ThemeToggle />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
