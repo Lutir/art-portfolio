@@ -1,59 +1,64 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { typography } from "../ui/typography";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { typography } from '../ui/typography';
+import ThemeToggle from '../components/ThemeToggle';
 
 export default function AboutPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="container mx-auto grid gap-8 px-4 md:px-6">
-          <div className="grid gap-6 md:grid-cols-2 items-center">
-            <div className="space-y-4">
-              <h1 className={typography.h1}>About Me</h1>
-              <p className={typography.bodyLarge}>
-                Welcome to my artistic journey. I&apos;m Ritul Jain, a passionate artist based in Seattle, Washington.
-              </p>
-              <p className={typography.body}>
-                My work is inspired by the natural beauty of the Pacific Northwest, urban landscapes, and the interplay of light and shadow in everyday scenes. I primarily work with oils and acrylics, exploring different techniques to capture the essence of my subjects.
-              </p>
-              <p className={typography.body}>
-                Each piece is a reflection of my personal connection to the world around me, an attempt to convey the emotions and stories that landscapes and cityscapes hold. Through my art, I hope to invite viewers to see the world through a different lens and find beauty in the ordinary.
-              </p>
-              <p className={typography.body}>
-                When I&apos;m not painting, I enjoy hiking in the mountains, photography, and exploring new artistic techniques. These experiences directly influence my work and help me grow as an artist.
-              </p>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <a
-                  href="mailto:contact@rituljain.com"
-                  className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
-                >
-                  Contact Me
-                </a>
-                <a
-                  href="https://instagram.com/rituljainart"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                >
-                  Follow on Instagram
-                </a>
-              </div>
-            </div>
-            <div className="relative aspect-square overflow-hidden rounded-xl">
-              <Image
-                src="/artist-portrait.jpg"
-                alt="Ritul Jain"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-              />
-            </div>
+    <div className="min-h-screen flex flex-col md:flex-row bg-slate-50 dark:bg-slate-900">
+      <ThemeToggle />
+      
+      <motion.div 
+        className="w-full md:w-1/2 h-screen relative overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="absolute inset-0 p-4 md:p-8">
+          <Image
+            src="/ritul-jain-about-me.jpg"
+            alt="Ritul Jain"
+            fill
+            className="object-contain rounded-lg shadow-lg"
+            priority
+          />
+        </div>
+      </motion.div>
+      
+      <motion.div 
+        className="w-full md:w-1/2 flex items-center justify-center p-8 md:p-16 bg-slate-50 dark:bg-slate-900"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <div className="max-w-xl">
+          <h1 className={`${typography.h1} mb-8 text-slate-800 dark:text-slate-100`}>About Me</h1>
+          
+          <div className={`${typography.bodyLarge} space-y-6 text-slate-700 dark:text-slate-200`}>
+            <p className="font-medium">
+              Hello! I&apos;m <span className="text-indigo-600 dark:text-indigo-400">Ritul Jain</span>, a passionate artist based in Seattle, Washington.
+            </p>
+            
+            <p>
+              I specialize in oil and acrylic paintings that capture the essence of both natural and urban environments. My style blends realism and impressionism, focusing on the mood and atmosphere of a scene.
+            </p>
+            
+            <p>
+              Each piece reflects my personal experiences and observations. Whether it&apos;s the serene beauty of Mount Rainier, the vibrant energy of Gasworks Park, or the intimate moments of a cat watching the rain, I strive to convey the emotions and stories that these scenes evoke.
+            </p>
+            
+            <p>
+              When I&apos;m not painting, I explore the beautiful landscapes of the Pacific Northwest, finding inspiration in its diverse environments.
+            </p>
+            
+            <p className="italic text-slate-600 dark:text-slate-300">
+              Through my work, I hope to inspire others to see the beauty in both the grand landscapes and the subtle moments of everyday life.
+            </p>
           </div>
         </div>
-      </section>
-    </main>
+      </motion.div>
+    </div>
   );
 } 

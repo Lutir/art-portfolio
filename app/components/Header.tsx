@@ -2,44 +2,47 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { typography } from "../ui/typography";
 
 export default function Header() {
   const pathname = usePathname();
 
+  const isActive = (path: string) => {
+    return pathname === path;
+  };
+
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-40 w-full backdrop-blur-sm bg-slate-50/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800">
+      <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex-shrink-0">
-            <Link href="/" className={`${typography.brand} text-gray-900`}>
-              Ritul Jain
-            </Link>
-          </div>
-          <nav className="hidden md:flex space-x-8">
+          <Link href="/" className="flex items-center space-x-2">
+            <span className="text-xl font-serif text-slate-800 dark:text-slate-100">Ritul Jain</span>
+          </Link>
+          <nav className="flex items-center space-x-6">
             <Link
               href="/"
-              className={`${typography.nav} transition-colors hover:text-gray-900 ${
-                pathname === "/" ? "text-gray-900" : "text-gray-500"
+              className={`text-sm font-medium transition-colors hover:text-indigo-600 dark:hover:text-indigo-400 ${
+                isActive("/") ? "text-indigo-600 dark:text-indigo-400" : "text-slate-600 dark:text-slate-300"
               }`}
             >
               Home
             </Link>
             <Link
               href="/gallery"
-              className={`${typography.nav} transition-colors hover:text-gray-900 ${
-                pathname === "/gallery" ? "text-gray-900" : "text-gray-500"
+              className={`text-sm font-medium transition-colors hover:text-indigo-600 dark:hover:text-indigo-400 ${
+                isActive("/gallery") ? "text-indigo-600 dark:text-indigo-400" : "text-slate-600 dark:text-slate-300"
               }`}
             >
               Gallery
             </Link>
             <Link
               href="/about"
-              className={`${typography.nav} transition-colors hover:text-gray-900 ${
-                pathname === "/about" ? "text-gray-900" : "text-gray-500"
+              className={`text-sm font-medium transition-colors hover:text-indigo-600 dark:hover:text-indigo-400 ${
+                isActive("/about") ? "text-indigo-600 dark:text-indigo-400" : "text-slate-600 dark:text-slate-300"
               }`}
             >
-              About Me
+              About
             </Link>
           </nav>
           <div className="md:hidden">
