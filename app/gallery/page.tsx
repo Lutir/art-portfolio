@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Metadata } from 'next'
 import Masonry from 'react-masonry-css'
-import ThemeToggle from '../components/ThemeToggle';
 import { Filter } from 'lucide-react';
 
 import '@/app/globals.css';
@@ -254,7 +253,6 @@ export default function Page() {
 
   return (
     <>
-      <ThemeToggle />
       <section className="w-full py-12 md:py-24 lg:py-32 bg-slate-50 dark:bg-slate-900">
         <div className="container mx-auto grid gap-8 px-4 md:px-6">
           <div className="space-y-4 text-center max-w-3xl mx-auto">
