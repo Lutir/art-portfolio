@@ -38,20 +38,19 @@ export default function AboutPage() {
           
           <div className={`${typography.bodyLarge} space-y-6 text-slate-700 dark:text-slate-200`}>
             <p className="font-medium">
-              Hello! I&apos;m <span className="text-indigo-600 dark:text-indigo-400">Ritul Jain</span>, a passionate artist based in Seattle, Washington.
+              Hello! I&apos;m <span className="text-indigo-600 dark:text-indigo-400">Ritul.</span>
             </p>
             
             <p>
-              I specialize in oil and acrylic paintings that capture the essence of both natural and urban environments. My style blends realism and impressionism, focusing on the mood and atmosphere of a scene.
+            I live in Seattle, WA, and I’m someone who’s always chasing creativity in different forms. I started painting a few years ago, and after moving to Washington, it slowly became a bigger part of my life. The landscapes here—moody skies, quiet forests, vibrant parks—just pulled me in.
             </p>
             
             <p>
-              Each piece reflects my personal experiences and observations. Whether it&apos;s the serene beauty of Mount Rainier, the vibrant energy of Gasworks Park, or the intimate moments of a cat watching the rain, I strive to convey the emotions and stories that these scenes evoke.
+            I like to travel a lot, and those little adventures often sneak their way into what I paint. Sometimes it’s a mountain view, sometimes just a cat staring out the window while it rains.
             </p>
             
             <p>
-              When I&apos;m not painting, I explore the beautiful landscapes of the Pacific Northwest, finding inspiration in its diverse environments.
-            </p>
+            Outside of painting, I work in tech, play the piano now and then, and keep a blog where I share thoughts whenever they show up.            </p>
             
             <p className="italic text-slate-600 dark:text-slate-300">
               Through my work, I hope to inspire others to see the beauty in both the grand landscapes and the subtle moments of everyday life.
