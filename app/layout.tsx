@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "google-site-verification-code",
-  },
+    },
 };
 
 export default function RootLayout({
@@ -60,9 +60,9 @@ export default function RootLayout({
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         <ThemeProvider>
           <Header />
-          {children}
+        {children}
         </ThemeProvider>
-      </body>
+      </body>    
     </html>
   );
 }

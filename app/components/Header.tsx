@@ -55,6 +55,14 @@ export default function Header() {
             >
               About
             </Link>
+            <a
+              href="https://blog.rituljain.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium transition-colors hover:text-indigo-600 dark:hover:text-indigo-400 text-slate-600 dark:text-slate-300"
+            >
+              Blog
+            </a>
             <ThemeToggle />
           </nav>
 
@@ -132,6 +140,15 @@ export default function Header() {
             >
               About
             </Link>
+            <a
+              href="https://blog.rituljain.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-lg px-4 py-3 text-lg font-medium mb-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800/50 dark:hover:text-slate-100"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Blog
+            </a>
           </nav>
         </div>
       )}

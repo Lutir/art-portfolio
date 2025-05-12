@@ -22,8 +22,8 @@ const artworks = [
     src: "/cafe_terrace_at_night.jpg",
     alt: "Cafe terrace at Night",
     title: "Cafe Terrace at Night",
-    description: "Inspired by Van Gogh's iconic painting, this piece captures the vibrant nightlife of a café terrace. The warm yellows and deep blues create a striking contrast, while the swirling patterns in the sky evoke a sense of movement and emotion. The composition draws the viewer into the scene, making them feel as if they're standing right there, experiencing the magical atmosphere of the evening.",
-    medium: "Oil" as Medium,
+    description: "Inspired by Van Gogh's iconic painting, this piece captures the vibrant nightlife of a café terrace. Funny story about this one is that this was my 3rd attempt at painting this. The first two attempts were so dif",
+    medium: "Acrylic/Oil" as Medium,
     year: "June, 2024",
     orientation: "vertical",
     categories: ['urban', 'nature'] as Category[]
@@ -45,7 +45,7 @@ const artworks = [
     alt: "The Cat on the Window",
     title: "The Cat on the Window",
     description: "A serene moment captured in this intimate portrait of a cat watching the rain. The contrast between the warm interior and the cool, wet world outside creates a sense of comfort and security. The detailed rendering of the raindrops and the cat's fur texture showcases the artist's attention to detail and ability to convey mood through subtle elements.",
-    medium: "Oil" as Medium,
+    medium: "Acrylic" as Medium,
     year: "November, 2023",
     orientation: "vertical",
     categories: ['urban', 'water'] as Category[]
@@ -77,7 +77,7 @@ const artworks = [
     src: "/chasing_the_horizon.jpg",
     alt: "Chasing the Horizon",
     title: "Chasing the Horizon",
-    description: "An expansive landscape that captures the endless pursuit of the horizon. The dramatic sky meets the earth in a symphony of colors, while the foreground elements create a sense of journey and discovery. This painting invites viewers to contemplate their own paths and aspirations.",
+    description: "An expansive landscape that captures the endless pursuit of the horizon. The dramatic sky meets the earth in a symphony of colors, while the foreground elements create a sense of journey and discovery. I was driving back from the mountains and this was the view that greeted me. I love the colors and the vibe of this one." ,
     medium: "Acrylic" as Medium,
     year: "February, 2025",
     orientation: "horizontal",
@@ -88,8 +88,8 @@ const artworks = [
     src: "/california_dreaming.jpg",
     alt: "California Dreaming",
     title: "California Dreaming",
-    description: "A vibrant interpretation of California's iconic landscapes, where golden light meets coastal beauty. The painting balances the state's natural splendor with its urban energy, creating a dreamlike vision of the Golden State. Rich colors and dynamic composition evoke the spirit of California's diverse landscapes.",
-    medium: "Oil" as Medium,
+    description: "A vibrant interpretation of California's iconic landscapes, where golden light meets coastal beauty. I think this is how i thought how California would be when i was a kid and saw the movies. I love the colors and the vibe of this one.",
+    medium: "Acrylic" as Medium,
     year: "March, 2025",
     orientation: "horizontal",
     categories: ['landscape', 'nature', 'urban'] as Category[]
@@ -254,14 +254,14 @@ export default function Page() {
   return (
     <>
       <section className="w-full py-12 md:py-24 lg:py-32 bg-slate-50 dark:bg-slate-900">
-        <div className="container mx-auto grid gap-8 px-4 md:px-6">
+      <div className="container mx-auto grid gap-8 px-4 md:px-6">
           <div className="space-y-4 text-center max-w-3xl mx-auto">
             <h1 className={`${typography.h1} text-slate-800 dark:text-slate-100`}>The Gallery</h1>
             <p className={`${typography.bodyLarge} text-slate-600 dark:text-slate-300`}>
-              Explore a curated collection of stunning artworks that capture the essence of creativity. I&apos;ve used a mixture
-              of Oils and Acrylic Paints
-            </p>
-          </div>
+            Explore a curated collection of stunning artworks that capture the essence of creativity. I&apos;ve used a mixture
+            of Oils and Acrylic Paints
+          </p>
+        </div>
 
           {/* Filter UI */}
           <div className="mb-8 space-y-4">
@@ -269,8 +269,8 @@ export default function Page() {
               <div className="flex items-center gap-2">
                 <Filter className="h-5 w-5" />
                 <span className="font-medium">Filters:</span>
-              </div>
-              
+          </div>
+
               {/* Category filters */}
               <div className="flex flex-wrap justify-center gap-2">
                 {Array.from(allCategories).map((category) => (
@@ -286,7 +286,7 @@ export default function Page() {
                     {category}
                   </button>
                 ))}
-              </div>
+          </div>
 
               {/* Medium filter */}
               <select
@@ -326,7 +326,7 @@ export default function Page() {
                   Clear all
                 </button>
               )}
-            </div>
+          </div>
 
             {/* Active filters summary */}
             {(selectedCategories.length > 0 || selectedMedium || selectedYear) && (
@@ -335,7 +335,7 @@ export default function Page() {
                 {selectedCategories.length > 0 && ` in ${selectedCategories.join(', ')}`}
                 {selectedMedium && ` using ${selectedMedium}`}
                 {selectedYear && ` from ${selectedYear}`}
-              </div>
+            </div>
             )}
           </div>
 
@@ -357,7 +357,7 @@ export default function Page() {
                 }}
               >
                 <div className={`relative w-full ${artwork.orientation === 'horizontal' ? 'aspect-[4/3]' : 'aspect-[3/4]'}`}>
-                  <Image
+            <Image
                     alt={artwork.alt}
                     className="object-cover"
                     src={artwork.src}
@@ -378,10 +378,10 @@ export default function Page() {
                             {category}
                           </span>
                         ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            </div>
+          </div>
+            </div>
+          </div>
                 <button 
                   className="absolute inset-0 z-10" 
                   onClick={() => openImageModal(artwork)}
@@ -400,8 +400,8 @@ export default function Page() {
               </p>
             </div>
           )}
-        </div>
-      </section>
+      </div>
+    </section>
 
       {selectedImage && (
         <ImageModal
