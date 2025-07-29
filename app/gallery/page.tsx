@@ -149,6 +149,50 @@ const artworks = [
     orientation: "horizontal",
     categories: ['landscape', 'nature'] as Category[]
   },
+  {
+    id: 13,
+    src: "/the_watson.jpg",
+    alt: "Cat posing for a picture",
+    title: "The Watson",
+    description: "Meet Watson — my friends cat! We went to a cat painting class and, of course, ended up painting the legend himself. Honestly, Watson is a poser haha — I love the way he poses for the camera! The colors, the vibe, the whiskers… I’m obsessed! This one was such a purr-fect experience!",
+    medium: "Acrylic" as Medium,
+    year: "May, 2025",
+    orientation: "vertical",
+    categories: ['urban', 'cat'] as Category[]
+  },
+  {
+    id: 14,
+    src: "/the_cat_on_the_ladder.jpg",
+    alt: "Cat on a ladder",
+    title: "The Cat on the Ladder",
+    description: "Just a random cat on a ladder. I went to a work event where we were painting cats and I ended up painting this one. It's a bit incomplete but it did turn out pretty good.",
+    medium: "Acrylic" as Medium,
+    year: "June, 2025",
+    orientation: "vertical",
+    categories: ['urban', 'cat'] as Category[]
+  },
+  {
+    id: 16,
+    src: "/the_house_in_the_valley.jpg",
+    alt: "The house in the valley",
+    title: "The House in the Valley",
+    description: "This one's one of my favorites. It was late at night, and for some reason I could not sleep. I ended up painting this one. I had the scene in my head for a while, and I'm glad I finally got to paint it. The house turned out to be really good, and I'm happy with the colors and the vibe of this one.",
+    medium: "Acrylic" as Medium,
+    year: "July, 2025",
+    orientation: "horizontal",
+    categories: ['landscape', 'nature'] as Category[]
+  },
+  {
+    id: 15,
+    src: "/wicked_waves.jpg",
+    alt: "Wicked Waves",
+    title: "Wicked Waves",
+    description: "So I went for this Bob Ross paint night at work where we were painting this one. I was a bit nervous but I'm glad I got to paint it. The waves are uhhh... tricky to paint. Still a long way to go with seascapes but its a good start. Still need to finish up the waves, but thats for another day!",
+    medium: "Acrylic" as Medium,
+    year: "July, 2025",
+    orientation: "horizontal",
+    categories: ['seascape', 'water'] as Category[]
+  },
 ];
 
 type SortOption = 'newest' | 'oldest';
