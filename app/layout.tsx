@@ -1,69 +1,51 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import localFont from "next/font/local";
+const handwriting = localFont({
+  src: "./fonts/gaegu-latin-400.woff2",
+  variable: "--font-handwriting",
+  weight: "400",
+  display: "swap",
+});
 import "./globals.css";
-import { ThemeProvider } from "./context/ThemeContext";
-import ThemeToggle from "./components/ThemeToggle";
 import Header from "./components/Header";
-import { Analytics } from "@vercel/analytics/next"
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
-
+import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/next";
+import { siteUrl } from "@/data/site";
 export const metadata: Metadata = {
-  title: "Ritul Jain Art Portfolio",
-  description: "Explore the artwork of Ritul Jain, featuring landscapes, nature scenes, and more.",
-  keywords: ["art", "portfolio", "painting", "landscape", "nature", "artist", "Ritul Jain"],
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Ritul Jain — Paintings & other things",
+    template: "%s — Ritul Jain",
+  },
+  description:
+    "Paintings by Ritul Jain. Mountains, cats, quiet places, and things seen along the way. Made in Seattle.",
   authors: [{ name: "Ritul Jain" }],
   creator: "Ritul Jain",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://art.rituljain.com",
-    title: "Ritul Jain Art Portfolio",
-    description: "Explore the artwork of Ritul Jain, featuring landscapes, nature scenes, and more.",
-    siteName: "Ritul Jain Art Portfolio",
-    images: [
-      {
-        url: "https://art.rituljain.com/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Ritul Jain Art Portfolio",
-      },
-    ],
+    siteName: "Ritul Jain",
+    images: ["/the_house_in_the_valley.jpg"],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ritul Jain Art Portfolio",
-    description: "Explore the artwork of Ritul Jain, featuring landscapes, nature scenes, and more.",
-    images: ["https://art.rituljain.com/og-image.jpg"],
-    creator: "@rituljain",
-  },
-  verification: {
-    google: "google-site-verification-code",
-    },
+  twitter: { card: "summary_large_image" },
 };
-
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#ffffff" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.dataset.theme=t==='dark'?'dark':'light'})()` }} />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        <ThemeProvider>
-          <Header />
-        {children}
-        </ThemeProvider>
-      </body>    
+      <body className={handwriting.variable}>
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
+        <Header />
+        <main id="main">{children}</main>
+        <Footer />
+        <Analytics />
+      </body>
     </html>
   );
 }
