@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { instagram, blog } from "@/data/site";
+import { blog } from "@/data/site";
 export default function Footer() {
   return (
     <footer className="site-footer">
@@ -9,9 +9,6 @@ export default function Footer() {
       <div className="footer-bottom">
         <span>SEATTLE, WA</span>
         <div>
-          <a href={instagram} target="_blank" rel="noreferrer">
-            INSTAGRAM ↗
-          </a>
           <a href={blog} target="_blank" rel="noreferrer">
             BLOG ↗
           </a>

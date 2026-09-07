@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { artworks } from "@/data/artworks";
-import { pageMetadata, instagram, siteUrl } from "@/data/site";
+import { pageMetadata, siteUrl } from "@/data/site";
 import type { CSSProperties } from "react";
 
 // A fresh server render chooses the painting before HTML is sent, avoiding a client swap.
@@ -40,7 +40,7 @@ export default function Home() {
             name: "Ritul Jain",
             url: siteUrl,
             image: `${siteUrl}/ritul-jain.jpg`,
-            sameAs: [instagram],
+            sameAs: [],
             description: "Seattle-based artist working in acrylic and oil.",
           }),
         }}

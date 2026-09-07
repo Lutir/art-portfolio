@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { pageMetadata, instagram, blog } from "@/data/site";
+import { pageMetadata, blog } from "@/data/site";
 export const metadata = pageMetadata(
   "About",
   "Ritul Jain paints in Seattle, inspired by Washington landscapes, travels, and everyday moments.",
@@ -41,9 +41,6 @@ export default function About() {
             the grand landscapes and the subtle moments of everyday life.
           </p>
           <div className="about-links">
-            <a href={instagram} target="_blank" rel="noreferrer">
-              INSTAGRAM ↗
-            </a>
             <a href={blog} target="_blank" rel="noreferrer">
               MY BLOG ↗
             </a>

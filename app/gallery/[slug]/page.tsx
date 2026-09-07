@@ -7,13 +7,15 @@ export const dynamicParams = false;
 export function generateStaticParams() {
   return artworks.map(({ slug }) => ({ slug }));
 }
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const a = getArtwork(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const a = getArtwork(slug);
   if (!a) notFound();
   return pageMetadata(a.title, a.description, `/gallery/${a.slug}`, a.src);
 }
-export default function ArtworkPage({ params }: { params: { slug: string } }) {
-  const a = getArtwork(params.slug);
+export default async function ArtworkPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const a = getArtwork(slug);
   if (!a) notFound();
   const index = orderedArtworks.findIndex((work) => work.id === a.id);
   const previous =

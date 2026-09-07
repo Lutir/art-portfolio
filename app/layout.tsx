@@ -37,7 +37,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: `(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.dataset.theme=t==='dark'?'dark':'light'})()` }} />
       </head>
-      <body className={handwriting.variable}>
+      <body className={handwriting.variable} suppressHydrationWarning>
         <a className="skip-link" href="#main">
           Skip to content
         </a>

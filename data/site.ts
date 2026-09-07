@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 export const siteUrl = "https://art.rituljain.com";
-export const instagram = "https://instagram.com/rituljain";
 export const blog = "https://blog.rituljain.com";
 export function pageMetadata(
   title: string,
