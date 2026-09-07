@@ -10,18 +10,20 @@ export default function About() {
   return (
     <section className="about-page page-section">
       <div className="about-layout">
-        <Image
-          src="/ritul-jain-about-me.jpg"
-          alt="Ritul Jain"
-          width={3024}
-          height={4032}
-          sizes="(max-width: 767px) 100vw, 50vw"
-          priority
-        />
+        <div className="about-image">
+          <Image
+            src="/ritul-jain-about-me.jpg"
+            alt="Ritul Jain"
+            width={3024}
+            height={4032}
+            sizes="(max-width: 767px) 200px, 350px"
+            priority
+          />
+        </div>
         <div className="about-copy">
-          <h1>I’M RITUL.</h1>
+          <h1>I&apos;M RITUL.</h1>
           <p>
-            I live in Seattle, WA, and I’m someone who’s always chasing
+            I live in Seattle, WA, and I&apos;m someone who&apos;s always chasing
             creativity in different forms. I started painting a few years ago,
             and after moving to Washington, it slowly became a bigger part of my
             life. The landscapes here—moody skies, quiet forests, vibrant
@@ -29,7 +31,7 @@ export default function About() {
           </p>
           <p>
             I like to travel a lot, and those little adventures often sneak
-            their way into what I paint. Sometimes it’s a mountain view,
+            their way into what I paint. Sometimes it&apos;s a mountain view,
             sometimes just a cat staring out the window while it rains.
           </p>
           <p>
