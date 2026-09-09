@@ -2,8 +2,8 @@ import { orderedArtworks } from "@/data/artworks";
 import { pageMetadata } from "@/data/site";
 import ArtworkArchive from "../components/ArtworkArchive";
 export const metadata = pageMetadata(
-  "Work",
-  "The complete painting archive of Ritul Jain. Oil and acrylic landscapes, cats, and everyday moments.",
+  "Paintings",
+  "Explore paintings by Seattle artist Ritul Jain: acrylic and oil landscapes, mountain views, cats, and everyday scenes.",
   "/gallery",
 );
 export default function Gallery() {

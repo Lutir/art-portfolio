@@ -33,7 +33,7 @@ export default function ArtworkArchive({ artworks }: { artworks: Artwork[] }) {
             key={artwork.id}
             artwork={artwork}
             headingLevel="h2"
-            priority={i < 2}
+            priority={i === 0}
             sizes="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"
           />
         ))}

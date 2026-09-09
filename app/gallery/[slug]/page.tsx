@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { artworks, orderedArtworks, getArtwork } from "@/data/artworks";
+import { artworkSchema, breadcrumbSchema, serializeJsonLd } from "@/data/schema";
 import { pageMetadata } from "@/data/site";
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -11,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const a = getArtwork(slug);
   if (!a) notFound();
-  return pageMetadata(a.title, a.description, `/gallery/${a.slug}`, a.src);
+  return pageMetadata(a.seoTitle ?? a.title, a.seoDescription ?? a.description, `/gallery/${a.slug}`, a.src);
 }
 export default async function ArtworkPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -25,6 +26,9 @@ export default async function ArtworkPage({ params }: { params: Promise<{ slug: 
   const next = orderedArtworks[(index + 1) % orderedArtworks.length];
   return (
     <article className="artwork-detail page-section">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: serializeJsonLd([artworkSchema(a), breadcrumbSchema(a)]),
+      }} />
       <div className="detail-top">
         <Link href="/gallery">← ALL WORK</Link>
         <span>

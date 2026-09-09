@@ -10,6 +10,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import { personSchema, serializeJsonLd } from "@/data/schema";
 import { siteUrl } from "@/data/site";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -35,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(personSchema) }} />
         <script dangerouslySetInnerHTML={{ __html: `(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.dataset.theme=t==='dark'?'dark':'light'})()` }} />
       </head>
       <body className={handwriting.variable} suppressHydrationWarning>

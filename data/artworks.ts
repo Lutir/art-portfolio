@@ -5,6 +5,12 @@ export type Artwork = {
   alt: string;
   title: string;
   description: string;
+  // SEO titles omit the artist suffix; pageMetadata adds it once.
+  seoTitle?: string;
+  seoDescription?: string;
+  subject?: string[];
+  location?: string;
+  keywords?: string[];
   medium: "Oil" | "Acrylic" | "Acrylic/Oil";
   year: string;
   orientation: "horizontal" | "vertical";
@@ -19,7 +25,7 @@ export const artworks: Artwork[] = [
     src: "/cafe_terrace_at_night.jpg",
     width: 2823,
     height: 3624,
-    alt: "Cafe terrace at Night",
+    alt: "Acrylic and oil painting of a café terrace at night, inspired by Van Gogh",
     title: "Cafe Terrace at Night",
     slug: "cafe-terrace-at-night",
     description:
@@ -34,7 +40,7 @@ export const artworks: Artwork[] = [
     src: "/candle_rain.jpg",
     width: 3024,
     height: 4032,
-    alt: "Reflections",
+    alt: "Acrylic painting of candlelight beside a rain-covered window",
     title: "Reflections",
     slug: "reflections",
     description:
@@ -49,9 +55,13 @@ export const artworks: Artwork[] = [
     src: "/cat_rain.jpg",
     width: 3024,
     height: 4032,
-    alt: "The Cat on the Window",
+    alt: "Acrylic painting of a cat watching rain through a window",
     title: "The Cat on the Window",
     slug: "the-cat-on-the-window",
+    seoTitle: "The Cat on the Window — Acrylic Art",
+    seoDescription: "An acrylic painting by Ritul Jain of a cat watching the rain, with a warm interior contrasting with the wet world outside.",
+    subject: ["cat", "rainy window"],
+    keywords: ["cat painting", "rainy window", "acrylic animal portrait"],
     description:
       "A serene moment captured in this intimate portrait of a cat watching the rain. The contrast between the warm interior and the cool, wet world outside creates a sense of comfort and security. The detailed rendering of the raindrops and the cat's fur texture showcases the artist's attention to detail and ability to convey mood through subtle elements.",
     medium: "Acrylic",
@@ -64,9 +74,14 @@ export const artworks: Artwork[] = [
     src: "/mount_rainier.jpg",
     width: 3024,
     height: 4032,
-    alt: "Mount Rainier",
+    alt: "Acrylic landscape painting of snow-capped Mount Rainier and surrounding wilderness",
     title: "Mount Rainier",
     slug: "mount-rainier",
+    seoTitle: "Mount Rainier Acrylic Painting",
+    seoDescription: "An acrylic painting of snow-capped Mount Rainier and the surrounding wilderness by Seattle artist Ritul Jain.",
+    subject: ["Mount Rainier", "mountains"],
+    keywords: ["Mount Rainier painting", "Washington landscape", "acrylic landscape"],
+    location: "Mount Rainier, Washington",
     description:
       "This majestic landscape captures the awe-inspiring presence of Mount Rainier. The snow-capped peak rises dramatically against the sky, while the surrounding wilderness is rendered with rich detail. The painting conveys both the grandeur of nature and the peaceful solitude found in wild places, inviting viewers to contemplate their relationship with the natural world.",
     medium: "Acrylic",
@@ -79,7 +94,7 @@ export const artworks: Artwork[] = [
     src: "/whispers_of_the_valley.jpg",
     width: 5022,
     height: 3766,
-    alt: "Whispers of the Valley",
+    alt: "Oil painting of mist between rolling hills in a valley",
     title: "Whispers of the Valley",
     slug: "whispers-of-the-valley",
     description:
@@ -94,7 +109,7 @@ export const artworks: Artwork[] = [
     src: "/chasing_the_horizon.jpg",
     width: 4946,
     height: 3710,
-    alt: "Chasing the Horizon",
+    alt: "Acrylic landscape painting of a dramatic sky meeting the horizon",
     title: "Chasing the Horizon",
     slug: "chasing-the-horizon",
     description:
@@ -109,7 +124,7 @@ export const artworks: Artwork[] = [
     src: "/california_dreaming.jpg",
     width: 3494,
     height: 2620,
-    alt: "California Dreaming",
+    alt: "Acrylic painting of an imagined California coastal landscape in golden light",
     title: "California Dreaming",
     slug: "california-dreaming",
     description:
@@ -124,7 +139,7 @@ export const artworks: Artwork[] = [
     src: "/enchanted_falls.jpg",
     width: 4032,
     height: 3024,
-    alt: "Enchanted Falls",
+    alt: "Oil painting of a cascading waterfall surrounded by green vegetation",
     title: "Enchanted Falls",
     slug: "enchanted-falls",
     description:
@@ -139,9 +154,14 @@ export const artworks: Artwork[] = [
     src: "/gasworks.jpeg",
     width: 4032,
     height: 3024,
-    alt: "Gasworks Park",
+    alt: "Acrylic painting of industrial structures in Gas Works Park",
     title: "Gasworks Park",
     slug: "gasworks-park",
+    seoTitle: "Gas Works Park Painting, Seattle",
+    seoDescription: "An acrylic painting of the industrial structures and parkland of Gas Works Park in Seattle by Ritul Jain.",
+    subject: ["Gas Works Park", "industrial structures"],
+    keywords: ["Gas Works Park painting", "Seattle park landscape", "acrylic painting"],
+    location: "Gas Works Park, Seattle, Washington",
     description:
       "This urban landscape reimagines the industrial structures of Gasworks Park with a dreamlike quality. The contrast between the geometric shapes of the machinery and the organic forms of the park creates a fascinating tension. The painting captures the transformation of industrial space into a place of recreation and contemplation, highlighting the intersection of human history and natural beauty.",
     medium: "Acrylic",
@@ -154,7 +174,7 @@ export const artworks: Artwork[] = [
     src: "/half_mountain.jpeg",
     width: 4032,
     height: 3024,
-    alt: "Somewhere in the Mountains",
+    alt: "Oil painting of a partially visible mountain peak",
     title: "Somewhere in the Mountains",
     slug: "somewhere-in-the-mountains",
     description:
@@ -169,7 +189,7 @@ export const artworks: Artwork[] = [
     src: "/whispering_peaks.jpg",
     width: 3857,
     height: 2858,
-    alt: "Whispering Peaks",
+    alt: "Acrylic painting of mountain peaks emerging through mist and clouds",
     title: "Whispering Peaks",
     slug: "whispering-peaks",
     description:
@@ -184,7 +204,7 @@ export const artworks: Artwork[] = [
     src: "/sunset_paradise.jpg",
     width: 4032,
     height: 3024,
-    alt: "Sunset Paradise",
+    alt: "Oil painting of a silhouetted landscape beneath an orange, pink and purple sunset",
     title: "Sunset Paradise",
     slug: "sunset-paradise",
     description:
@@ -199,7 +219,7 @@ export const artworks: Artwork[] = [
     src: "/the_watson.jpg",
     width: 4281,
     height: 5708,
-    alt: "Cat posing for a picture",
+    alt: "Acrylic portrait of Watson the cat",
     title: "The Watson",
     slug: "the-watson",
     description:
@@ -214,7 +234,7 @@ export const artworks: Artwork[] = [
     src: "/the_cat_on_the_ladder.jpg",
     width: 4272,
     height: 5712,
-    alt: "Cat on a ladder",
+    alt: "Acrylic painting of a cat on a ladder",
     title: "The Cat on the Ladder",
     slug: "the-cat-on-the-ladder",
     description:
@@ -229,7 +249,7 @@ export const artworks: Artwork[] = [
     src: "/the_house_in_the_valley.jpg",
     width: 5712,
     height: 4284,
-    alt: "The house in the valley",
+    alt: "Acrylic painting of a house in a valley",
     title: "The House in the Valley",
     slug: "the-house-in-the-valley",
     description:
@@ -244,7 +264,7 @@ export const artworks: Artwork[] = [
     src: "/wicked_waves.jpg",
     width: 5712,
     height: 4284,
-    alt: "Wicked Waves",
+    alt: "Acrylic seascape painting of waves",
     title: "Wicked Waves",
     slug: "wicked-waves",
     description:
